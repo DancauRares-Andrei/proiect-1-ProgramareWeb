@@ -17,5 +17,22 @@
             <tr><td>td</td><td>o celula dintr-un tabel</td></tr>
         </table>
         <p><strong>Observatie:</strong> Pentru a pune un contur unui tabel se poate(dar nu se recomanda) sa se puna atributul border="1".<br>La validare va da eroarea: <em>The border attribute on the table element is obsolete.</em></p>
+
+        <p>Formularele se pot crea cu ajutorul tag-ului form care poate contine tag-urile: input, textarea, label, select, option, button<br>Pentru mai multe detalii consultati cursul sau tutorialul <a href="https://www.w3schools.com/html/html_forms.asp">HTML Forms and Inputs</a> de la adresa <a href="https://www.w3schools.com/html/html_forms.asp"></a>.</p><br>
+        <form>
+            <label>Un exemplu de formular este urmatorul:</label><br>
+            <label>Nume: </label><input value="nume"></input><br>
+            <label>Prenume: </label><input value="prenume"></input><br>
+            <label>Parola:</label><input type="password" value="123"></input><br>
+            <label>Culoarea preferata: </label>
+            <select>
+                <option>rosu</option>
+                <option>galben</option>
+                <option>albastru</option>
+            </select><br>
+            <label>Descriere: </label><textarea></textarea><br>
+            <input type="checkbox"><label>Sunt de acord cu conditiile</label><br><br>
+            <button>Inregistreaza</button>
+        </form>
     </body>
 </html>
