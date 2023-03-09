@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ro-RO">
+    <head>
+        <meta charset="UTF-8">
+        <title>Acasă</title>
+    </head>
+    <body></body>
+        <nav>
+            <a href="./index.html">Acasă</a>
+            <a href="./inregistreaza.html">Înregistrează</a>
+            <a href="./video.html">Video</a>
+            <a href="./despre.html">Despre</a>
+        </nav>
+        <svg xmlns="http://www.w3.org/2000/svg" width="600" height="400">
+            <!-- Battery -->
+            <rect x="20" y="140" width="100" height="60" fill="url(#batteryGradient)" stroke="#333" stroke-width="4" />
+  <line x1="120" y1="160" x2="160" y2="160" stroke="#333" stroke-width="4" />
+  <line x1="120" y1="180" x2="160" y2="180" stroke="#333" stroke-width="4" />
+  <text x="70" y="240" fill="#333" font-size="24" text-anchor="middle">Battery</text>
+            <!-- Resistor -->
+            <rect x="140" y="50" width="60" height="20" fill="#ccc" stroke="#333" stroke-width="4" />
+            <rect x="140" y="50" width="10" height="40" rx="5" fill="#ccc" stroke="#333" stroke-width="4" />
+            <rect x="190" y="50" width="10" height="40" rx="5" fill="#ccc" stroke="#333" stroke-width="4" />
+            <text x="170" y="120" fill="#333" font-size="24">R</text>
+            <!-- LED -->
+            <g>
+                <!-- LED -->
+                <circle cx="295" cy="60" r="40" fill="#fff" stroke="#333" stroke-width="4" />
+                <circle cx="295" cy="60" r="30" fill="none" stroke="#333" stroke-width="4" />
+                <circle id="led-light" cx="295" cy="60" r="20" fill="#f00" stroke="#333" stroke-width="4" />
+                <text x="295" y="140" fill="#333" font-size="24" text-anchor="middle">LED</text>
+              </g>
+              
+              <!-- Animatie pentru LED -->
+              <animate 
+                xlink:href="#led-light"
+                attributeName="opacity"
+                values="1;0;1"
+                dur="1.5s"
+                repeatCount="indefinite"
+              />
+              
+            <!--Capacitor -->
+<rect x="370" y="50" width="60" height="20" fill="#ccc" stroke="#333" stroke-width="4" />
+<line x1="370" y1="50" x2="370" y2="110" stroke="#333" stroke-width="4" />
+<line x1="430" y1="50" x2="430" y2="110" stroke="#333" stroke-width="4" />
+<text x="400" y="120" fill="#333" font-size="24" text-anchor="middle">C</text>
+
+    <rect x="340" y="150" width="60" height="100" fill="url(#coil-gradient)" stroke="#333" stroke-width="4" />
+    <text x="420" y="250" fill="#333" font-size="24" text-anchor="middle">L</text>
+  
+    <!-- Gradient pentru bobină -->
+    <defs>
+      <linearGradient id="coil-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#9b59b6" />
+        <stop offset="100%" stop-color="#8e44ad" />
+      </linearGradient>
+    </defs>
+</svg>
+          
+          
+          
+    </body>
+    </html>
