@@ -13,12 +13,43 @@
         </nav>
         <form>
             <label>Daca doriți să discutăm despre componente electrice, completați următorul formular:</label><br>
+            <fieldset>
+                <legend>Informatii generale:</legend>
+                <label>Nume utilizator: </label><input value="username"><br>
+                <label>Parola:</label><input type="password" value="123"><br>    
             <label>Nume: </label><input value="nume"><br>
             <label>Prenume: </label><input value="prenume"><br>
             <label>Adresa de email:</label><input value="email@email.com"><br>
-           <label>Parola:</label><input type="password" value="123"><br>       
-            <input type="checkbox"><label>Sunt de acord cu conditiile</label><br><br>
-            <button>Înregistrează</button>
+            <label>Telefon:</label><input value="0745493458"><br> 
+        </fieldset>
+        <fieldset>
+            <legend>Informații personale:</legend>
+            <label>Sexul:</label>
+            <select>
+                <option>M</option>
+                <option>F</option>
+            </select><br><br>
+            <label>Mâncarea preferată:</label>
+            <input list="mancare" name="man" id="man">
+            <datalist id="mancare">
+                <option value="Pizza">
+                <option value="Mici">   
+                <option value="Sarmale">
+            </datalist><br><br>
+            <label>Culoarea preferată:</label>
+            <input type="color"><br><br>
+            <label>Data nașterii:</label>
+            <input type="date"><br><br>
+            <label>Ora nașterii:</label>
+            <input type="time"><br><br>
+            <label>Vârsta(între 18 și 100):</label>
+            <input type="range" min="18" max="100"><br><br>
+            <label>Adresa paginii personale:</label>
+            <input type="url"><br><br>
+            <label>Descriere:</label>
+            <textarea></textarea>
+    </fieldset><br><br>
+    <button disabled="disabled">Înregistrează</button>
         </form>
     </body>
     </html>
