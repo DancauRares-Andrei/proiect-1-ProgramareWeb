@@ -32,6 +32,7 @@ nav {
 
 nav a {
   display: block;
+  text-decoration: none; 
 }
 
 nav a:hover {
@@ -51,6 +52,8 @@ nav ul {
   flex: 3;
   background-color: #f1f1f1;
   padding: 10px;
+  overflow: hidden;
+  text-overflow: clip; 
 }
 
 /* Style the footer */
@@ -67,4 +70,111 @@ footer {
     -webkit-flex-direction: column;
     flex-direction: column;
   }
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="time"],
+input[type="url"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+input[type="color"] {
+  margin-bottom: 20px;
+}
+input[type="range"] {
+  margin-bottom: 20px;
+  width: 100%;
+}
+fieldset {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+legend {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+::selection {
+  color: red;
+  background: yellow;
+}
+.borderimg {
+  border: 10px solid transparent;
+  padding: 15px;
+  border-image-source: repeating-linear-gradient(45deg, transparent, #4d9f0c 20px);;
+}
+.grad{
+  background-image: linear-gradient(red, yellow);
+}
+.rot{
+  transform: rotate(20deg);
+}
+ .scris_vertical{
+  writing-mode: vertical-rl;
+}
+.crestere{
+  width: 100px;
+  transition: width 5s;
+}
+.crestere:hover{
+  width: 300px;
+}
+iframe{
+  border:2px solid red;
 }
