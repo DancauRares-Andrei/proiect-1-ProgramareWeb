@@ -66,9 +66,17 @@ footer {
 
 /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
 @media (max-width: 600px) {
-  section {
+  .section {
     -webkit-flex-direction: column;
     flex-direction: column;
+  }
+  nav a:nth-child(n+3) {
+    display: none;
+  }
+  nav {
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100vh;
   }
 }
 
@@ -177,4 +185,37 @@ button:disabled {
 }
 iframe{
   border:2px solid red;
+}
+@media print {
+  header {
+    display: none;
+  }
+  nav {
+    display: none;
+  }
+  footer {
+    display: none;
+  }
+  .borderimg {
+    border-image: none;
+    padding:0px;
+    border:0px;
+  }
+  .grad {
+    background: none;
+  }
+  .crestere {
+    font-size: 12pt;
+    width: 1000px;
+  }
+}
+.flex-container {
+  flex: 3;
+  background-color: #f1f1f1;
+  padding: 10px;
+  overflow: hidden;
+  text-overflow: clip; 
+}
+.videoclip_custom{
+  width: 1000px;
 }
