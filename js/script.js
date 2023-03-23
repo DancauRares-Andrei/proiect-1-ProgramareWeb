@@ -169,7 +169,7 @@ canvas.addEventListener("mouseup", opresteDesenul);
 
 function insertRow() {
   var table = document.getElementById("myTable"); // obțineți tabelul folosind ID-ul
-  var row = parseInt(document.getElementById("row").value); // obțineți poziția liniei din input
+  var row = parseInt(document.getElementById("row").value)-1; // obțineți poziția liniei din input
   var color = document.getElementById("color").value; // obțineți culoarea din input
 
   // obțineți numărul de coloane din tabel
@@ -188,7 +188,7 @@ function insertRow() {
 
 function insertCol() {
   var table = document.getElementById("myTable"); // obțineți tabelul folosind ID-ul
-  var col = parseInt(document.getElementById("col").value); // obțineți poziția coloanei din input
+  var col = parseInt(document.getElementById("col").value)-1; // obțineți poziția coloanei din input
   var color = document.getElementById("color").value; // obțineți culoarea din input
 
   // parcurgeți fiecare rând din tabel și adăugați o celulă nouă la poziția specificată
