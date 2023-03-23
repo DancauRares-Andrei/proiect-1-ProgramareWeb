@@ -235,3 +235,23 @@ h1 {
   flex: 1;
   text-align: center;
 }
+
+aside {
+  background-color: #ccc;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.dreapta{
+  background: #ccc;
+  flex: 1;
+}
+
+.dreapta a{
+  position:fixed;
+  text-decoration: none; 
+}
+
+.dreapta a:hover {
+  text-decoration: underline; /* subliniază textul la trecerea mouse-ului */
+}
