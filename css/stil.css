@@ -13,6 +13,8 @@ header {
   text-align: center;
   font-size: 35px;
   color: white;
+  display: flex;
+  align-items: center;
 }
 
 /* Container for flexboxes */
@@ -220,11 +222,16 @@ iframe{
   width: 1000px;
 }
 
-aside {
-  width: 30%;
-  padding-left: 15px;
-  margin-left: 15px;
-  float: right;
-  font-style: italic;
-  background-color: lightgray;
+header-logo {
+  margin-right: 20px;
+}
+
+.header-logo img {
+  width: 100px; /* schimbați dimensiunea imaginii după necesitate */
+  height: auto;
+}
+
+h1 {
+  flex: 1;
+  text-align: center;
 }

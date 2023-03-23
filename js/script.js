@@ -167,3 +167,33 @@ canvas.addEventListener("mouseup", opresteDesenul);
 }
 }
 
+function insertRow() {
+  var table = document.getElementById("myTable"); // obțineți tabelul folosind ID-ul
+  var row = parseInt(document.getElementById("row").value); // obțineți poziția liniei din input
+  var color = document.getElementById("color").value; // obțineți culoarea din input
+
+  // obțineți numărul de coloane din tabel
+  var colCount = table.rows[0].cells.length;
+
+  // inserați un nou rând în tabel la poziția specificată
+  var newRow = table.insertRow(row);
+
+  // parcurgeți fiecare coloană din rândul nou creat și adăugați o celulă nouă
+  for (var i = 0; i < colCount; i++) {
+    var cell = newRow.insertCell(i);
+    cell.style.backgroundColor = color; // setați culoarea celulei
+  }
+}
+
+
+function insertCol() {
+  var table = document.getElementById("myTable"); // obțineți tabelul folosind ID-ul
+  var col = parseInt(document.getElementById("col").value); // obțineți poziția coloanei din input
+  var color = document.getElementById("color").value; // obțineți culoarea din input
+
+  // parcurgeți fiecare rând din tabel și adăugați o celulă nouă la poziția specificată
+  for (var i = 0; i < table.rows.length; i++) {
+    var cell = table.rows[i].insertCell(col);
+    cell.style.backgroundColor = color; // setați culoarea celulei
+  }
+}

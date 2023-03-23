@@ -6,7 +6,7 @@
         <link rel="stylesheet" type="text/css" href="./css/stil.css">
     </head>
     <body>
-    <header><h1>Învăț</h1></header>
+    <header><div class="header-logo"><img src="./img/logo.png"></div><h1>Învăț</h1></header>
     <img id="comp" src="./img/comp.jpeg" style="display:none">
     <div class="section">
         <nav>
@@ -43,6 +43,33 @@
     </div>
     <div id="sectiunea3"></div>
     <h2>Secțiunea 3</h2>
+    <table id="myTable">
+        <tr>
+          <th>Header 1</th>
+          <th>Header 2</th>
+          <th>Header 3</th>
+        </tr>
+        <tr>
+          <td>Data 1</td>
+          <td>Data 2</td>
+          <td>Data 3</td>
+        </tr>
+        <tr>
+          <td>Data 4</td>
+          <td>Data 5</td>
+          <td>Data 6</td>
+        </tr>
+      </table>
+      <label for="row">Insert Row:</label>
+      <input type="text" id="row"><button onclick="insertRow()">Insert Row</button>
+      
+      <label for="col">Insert Column:</label>
+      <input type="text" id="col">
+      <button onclick="insertCol()">Insert Column</button>     
+      <label for="color">Color:</label>
+      <input type="color" id="color" value="#ffffff">
+      
+ 
     </div>
 </div>
 <footer>
