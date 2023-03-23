@@ -238,20 +238,30 @@ h1 {
 
 aside {
   background-color: #ccc;
-  padding: 20px;
-  margin: 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 .dreapta{
   background: #ccc;
-  flex: 1;
+  width:125px;
 }
 
 .dreapta a{
   position:fixed;
   text-decoration: none; 
+  font-weight: bold;
+  color: #333;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  margin-bottom: 5px;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .dreapta a:hover {
   text-decoration: underline; /* subliniază textul la trecerea mouse-ului */
+  background-color: #333;
+  color: #fff;
 }
