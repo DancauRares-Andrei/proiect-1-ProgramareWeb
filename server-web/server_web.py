@@ -49,29 +49,29 @@ while True:
                     # citeste continutul fisierului
                     with open(caleFisier, 'rb') as fisier:
                         continutFisier = fisier.read()
-                        
+                    # calculeaza lungimea continutului fisierului
+                    lungimeContinut = str(len(continutFisier))    
                     # construieste raspunsul HTTP cu codul de stare 200 (OK) si continutul fisierului
-                    raspuns = 'HTTP/1.1 200 OK\r\nContent-Type: '+tipMedia+'\r\n\r\n'
-                    #raspuns = raspuns.encode() + continutFisier
-                    raspuns = raspuns.encode()+ continutFisier
+                    raspuns = 'HTTP/1.1 200 OK\r\nContent-Type: '+tipMedia+'\r\nContent-Length: '+lungimeContinut+'\r\n\r\n'
+                    raspuns = raspuns.encode() + continutFisier
                     # trimite răspunsul înapoi către client
                     clientsocket.sendall(raspuns)
                 else:
                     # daca fisierul nu exista, construieste raspunsul HTTP cu codul de stare 404 (Not Found)
-                    raspuns = 'HTTP/1.1 404 Not Found\r\nContent-Type: text/plain\r\n\r\nFisierul cerut nu a putut fi gasit!'
+                    raspuns = 'HTTP/1.1 404 Not Found\r\nContent-Type: text/plain\r\nContent-Length: 43\r\n\r\nFisierul cerut nu a putut fi gasit!'
                     # trimite răspunsul înapoi către client
                     clientsocket.sendall(raspuns.encode())
                 # Inchidem fisierul
                 fisier.close()
             except FileNotFoundError:
             # Daca fisierul nu exista, construieste raspunsul HTTP cu codul de stare 404 (Not Found)
-                raspuns = 'HTTP/1.1 404 Not Found\r\nContent-Type: text/plain\r\n\r\nFisierul cerut nu a putut fi gasit!'
+                raspuns = 'HTTP/1.1 404 Not Found\r\nContent-Type: text/plain\r\nContent-Length: 43\r\n\r\nFisierul cerut nu a putut fi gasit!'
                 clientsocket.sendall(raspuns.encode())
             except Exception as e:
             # Daca a aparut o eroare la citirea fisierului, construieste raspunsul HTTP cu codul de stare 500 (Internal Server Error)
-                raspuns = 'HTTP/1.1 500 Internal Server Error\r\nContent-Type: text/plain\r\n\r\nEroare la citirea fisierului: ' + str(e)
+                raspuns = 'HTTP/1.1 500 Internal Server Error\r\nContent-Type: text/plain\r\nContent-Length: '+str(len(str(e)))+'\r\n\r\nEroare la citirea fisierului: ' + str(e)
                 clientsocket.sendall(raspuns.encode())
-        break
+            break
     print('S-a terminat cititrea.')
     clientsocket.close()
     print('S-a terminat comunicarea cu clientul.')
