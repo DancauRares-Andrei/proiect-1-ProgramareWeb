@@ -1,6 +1,7 @@
 import socket
 import os
-
+import gzip
+from threading import Thread
 # dictionar cu tipurile de media suportate
 tipuriMedia = {
     'html': 'text/html',
@@ -18,12 +19,7 @@ serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 serversocket.bind(('', 5678))
 # serverul poate accepta conexiuni; specifica cati clienti pot astepta la coada
 serversocket.listen(5)
-while True:
-    print('#########################################################################')
-    print('Serverul asculta potentiali clienti.')
-    # asteapta conectarea unui client la server
-    # metoda `accept` este blocanta => clientsocket, care reprezinta socket-ul corespunzator clientului conectat
-    (clientsocket, address) = serversocket.accept()
+def procesare_cerere(clientsocket,address):
     print('S-a conectat un client.')
     # se proceseaza cererea si se citeste prima linie de text
     cerere = ''
@@ -49,11 +45,13 @@ while True:
                     # citeste continutul fisierului
                     with open(caleFisier, 'rb') as fisier:
                         continutFisier = fisier.read()
-                    # calculeaza lungimea continutului fisierului
-                    lungimeContinut = str(len(continutFisier))    
+                    # comprima continutul fisierului folosind gzip
+                    continutComprimat = gzip.compress(continutFisier)
+                    # calculeaza lungimea continutului fisierului comprimat
+                    lungimeContinut = str(len(continutComprimat))
                     # construieste raspunsul HTTP cu codul de stare 200 (OK) si continutul fisierului
-                    raspuns = 'HTTP/1.1 200 OK\r\nContent-Type: '+tipMedia+'\r\nContent-Length: '+lungimeContinut+'\r\n\r\n'
-                    raspuns = raspuns.encode() + continutFisier
+                    raspuns = 'HTTP/1.1 200 OK\r\nContent-Type: '+tipMedia+'\r\nContent-Encoding: gzip\r\nContent-Length: '+lungimeContinut+'\r\n\r\n'
+                    raspuns = raspuns.encode() + continutComprimat 
                     # trimite răspunsul înapoi către client
                     clientsocket.sendall(raspuns)
                 else:
@@ -75,3 +73,12 @@ while True:
     print('S-a terminat cititrea.')
     clientsocket.close()
     print('S-a terminat comunicarea cu clientul.')
+while True:
+    print('#########################################################################')
+    print('Serverul asculta potentiali clienti.')
+    # asteapta conectarea unui client la server
+    # metoda `accept` este blocanta => clientsocket, care reprezinta socket-ul corespunzator clientului conectat
+    (clientsocket, address) = serversocket.accept()
+    t = Thread(target=procesare_cerere, args=(clientsocket, address))
+    t.start()
+    t.join()
