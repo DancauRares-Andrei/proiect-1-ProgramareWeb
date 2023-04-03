@@ -27,6 +27,8 @@ def procesare_cerere(clientsocket,address):
     while True:
         data = clientsocket.recv(1024)
         cerere = cerere + data.decode()
+        if len(data) == 0:
+            break
         print('S-a citit mesajul: \n---------------------------\n' + cerere + '\n---------------------------')
         pozitie = cerere.find('\r\n')
         if (pozitie > -1):
@@ -82,3 +84,4 @@ while True:
     t = Thread(target=procesare_cerere, args=(clientsocket, address))
     t.start()
     t.join()
+
