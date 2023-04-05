@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persoane>
+  <persoana id="1">
+    <nume>Popescu</nume>
+    <prenume>Ion</prenume>
+    <varsta>32</varsta>
+    <adresa>
+      <strada>Strada 1</strada>
+      <numar>15</numar>
+      <localitate>Bucuresti</localitate>
+      <judet>Bucuresti</judet>
+      <tara>Romania</tara>
+    </adresa>
+    <liceu>CN Ion Creanga</liceu>
+    <telefon>0721123456</telefon>
+  </persoana>
+  <persoana id="2">
+    <nume>Ionescu</nume>
+    <prenume>Maria</prenume>
+    <varsta>25</varsta>
+    <adresa>
+      <strada>Strada 2</strada>
+      <numar>10</numar>
+      <localitate>Cluj-Napoca</localitate>
+      <judet>Cluj</judet>
+      <tara>Romania</tara>
+    </adresa>
+    <liceu>CN Mihai Viteazul</liceu>
+    <telefon>0732123456</telefon>
+  </persoana>
+  <persoana id="3">
+    <nume>Popa</nume>
+    <prenume>Andrei</prenume>
+    <varsta>28</varsta>
+    <adresa>
+      <strada>Strada 3</strada>
+      <numar>5</numar>
+      <localitate>Timisoara</localitate>
+      <judet>Timis</judet>
+      <tara>Romania</tara>
+    </adresa>
+    <liceu>CN Gheorghe Lazar</liceu>
+    <telefon>0743123456</telefon>
+  </persoana>
+</persoane>
+
