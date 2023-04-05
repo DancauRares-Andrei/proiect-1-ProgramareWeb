@@ -226,3 +226,28 @@ function insertCol() {
         cell.style.backgroundColor = color; // setați culoarea celulei
     }
 }
+function validare() {
+  const utilizatorInput = document.getElementById("utilizator").value;
+  const parolaInput = document.getElementById("parola").value;
+
+  const xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      const utilizatori = JSON.parse(this.responseText);
+      let utilizatorValid = false;
+      utilizatori.forEach(function(utilizator) {
+        if (utilizator.utilizator === utilizatorInput && utilizator.parola === parolaInput) {
+          utilizatorValid = true;
+        }
+      });
+      const rezultat = document.getElementById("rezultat");
+      if (utilizatorValid) {
+        rezultat.innerHTML = "Utilizator și parolă corecte!";
+      } else {
+        rezultat.innerHTML = "Utilizator sau parolă incorecte!";
+      }
+    }
+  };
+  xhttp.open("GET", "./resurse/utilizatori.json", true);
+  xhttp.send();
+}
