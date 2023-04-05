@@ -4,6 +4,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
 }
 
 /* Style the header */
@@ -56,9 +57,9 @@ nav ul {
 /* Style the footer */
 footer {
   background-color: #777;
-  padding: 10px;
   text-align: center;
   color: white;
+  padding: 10px;
 }
 
 /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
@@ -166,9 +167,10 @@ button:disabled {
 .grad{
   background-image: linear-gradient(red, yellow);
 }
-.rot{
+.rot {
   transform: rotate(20deg);
 }
+
  .scris_vertical{
   writing-mode: vertical-rl;
 }
@@ -258,4 +260,10 @@ aside {
   text-decoration: underline; /* subliniază textul la trecerea mouse-ului */
   background-color: #333;
   color: #fff;
+}
+main {
+  min-height: calc(100vh - 200px);
+}
+#continut{
+display:flex;
 }
