@@ -1,43 +1,47 @@
 <div class="article">
-        <form>
-            <label>Daca doriți să discutăm despre componente electrice, completați următorul formular:</label><br>
-            <fieldset>
-                <legend>Informatii generale:</legend>
-                <label>Nume utilizator: </label><input value="username"><br>
-                <label>Parola:</label><input type="password" value="123"><br>    
-            <label>Nume: </label><input value="nume"><br>
-            <label>Prenume: </label><input value="prenume"><br>
-            <label>Adresa de email:</label><input value="email@email.com"><br>
-            <label>Telefon:</label><input value="0745493458"><br> 
-        </fieldset>
-        <fieldset>
-            <legend>Informații personale:</legend>
-            <label>Sexul:</label>
-            <select>
-                <option>M</option>
-                <option>F</option>
-            </select><br><br>
-            <label>Mâncarea preferată:</label>
-            <input list="mancare" name="man" id="man">
-            <datalist id="mancare">
-                <option value="Pizza">
-                <option value="Mici">   
-                <option value="Sarmale">
-            </datalist><br><br>
-            <label>Culoarea preferată:</label>
-            <input type="color"><br><br>
-            <label>Data nașterii:</label>
-            <input type="date"><br><br>
-            <label>Ora nașterii:</label>
-            <input type="time"><br><br>
-            <label>Vârsta(între 18 și 100):</label>
-            <input type="range" min="18" max="100"><br><br>
-            <label>Adresa paginii personale:</label>
-            <input type="url"><br><br>
-            <label>Descriere:</label>
-            <textarea></textarea>
-    </fieldset><br><br>
-    <button disabled="disabled">Înregistrează</button>
-        </form>
+        <form method="POST" action="/api/utilizatori">
+  <label>Daca doriți să discutăm despre componente electrice, completați următorul formular:</label><br>
+  <fieldset>
+    <legend>Informatii generale:</legend>
+    <label>Nume utilizator: </label><input type="text" name="username" id="username" value="username"><br>
+    <label>Parola:</label><input type="password" name="password" id="password" value="123"><br>    
+    <label>Nume: </label><input type="text" id="nume" value="nume"><br>
+    <label>Prenume: </label><input type="text" id="prenume" value="prenume"><br>
+    <label>Adresa de email:</label><input type="email" id="email" value="email@email.com"><br>
+    <label>Telefon:</label><input type="text" id="telefon" value="0745493458"><br> 
+    <label>Oras:</label><input type="text" id="oras" value="Bacau"><br>
+    <label>Adresa:</label><input type="text" id="adresa" value="Adresa"><br>
+    <label>Cod postal:</label><input type="text" id="cod_postal" value="Cod"><br>
+  </fieldset>
+  <fieldset>
+    <legend>Informații personale:</legend>
+    <label>Sexul:</label>
+    <select id="sex">
+      <option value="M">Masculin</option>
+      <option value="F">Feminin</option>
+    </select><br><br>
+    <label>Mâncarea preferată:</label>
+    <input list="mancare" id="mancare" value="Sarmale">
+    <datalist id="mancare">
+      <option value="Pizza">
+      <option value="Mici">   
+      <option value="Sarmale">
+    </datalist><br><br>
+    <label>Culoarea preferată:</label>
+    <input type="color" id="culoare_preferata"><br><br>
+    <label>Data nașterii:</label>
+    <input type="date" id="data_nasterii" value="2001-04-05"><br><br>
+    <label>Ora nașterii:</label>
+    <input type="time" id="ora_nasterii" value="10:54:45"><br><br>
+    <label>Vârsta(între 18 și 100):</label>
+    <input type="range" id="varsta" min="18" max="100"><br><br>
+    <label>Adresa paginii personale:</label>
+    <input type="url" id="pagina_personala" value="http://www.ceva.com"><br><br>
+    <label>Descriere:</label>
+    <textarea id="descriere">bla bla bla</textarea>
+  </fieldset><br><br>
+  <button id="inreg">Înregistrează</button>
+</form>
+
 <p style="visibility: hidden;"><strong>Observatie:</strong> Componentele pasive cu mai mult de două terminale pot fi descrise prin componente cu doi pini ce satisfac principiul <em>reciprocității</em>. Componentele active nu au aceasta proprietate.</p>
     </div>
