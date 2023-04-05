@@ -11,7 +11,9 @@ tipuriMedia = {
     'jpg': 'image/jpeg',
     'jpeg': 'image/jpeg',
     'gif': 'image/gif',
-    'ico': 'image/x-icon'
+    'ico': 'image/x-icon',
+    'json': 'application/json',
+    'xml': 'application/xml'
 }
 # creeaza un server socket
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

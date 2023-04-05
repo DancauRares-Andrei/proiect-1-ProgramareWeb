@@ -1,4 +1,10 @@
-var dataOra = new Date();
+function schimbaContinut(resursa) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("continut").innerHTML = this.responseText;
+    if (resursa=="invat"){
+    var dataOra = new Date();
 var dataOraElem = document.getElementById("data-ora");
 dataOraElem.innerHTML = dataOra.toLocaleString();
 
@@ -34,11 +40,12 @@ document.getElementById("os").innerHTML = os;
 var canvas = document.getElementById("canvas");
 var context = canvas.getContext("2d");
 
-window.onload = function() {
-  var img = document.getElementById("comp");
- context.drawImage(img, 10, 10);
+var img = new Image();
+img.onload = function() {
+  // Desenarea imaginii pe canvas
+  context.drawImage(img, 10, 10);
 };
-
+img.src="../img/comp.jpeg"
 // Setăm culorile implicite pentru contur și umplere
 var culoareContur = "#000000";
 var culoareUmplere = "#ffffff";
@@ -197,3 +204,10 @@ function insertCol() {
     cell.style.backgroundColor = color; // setați culoarea celulei
   }
 }
+}
+    }
+  };
+  xhttp.open("GET", resursa + ".html", true);
+  xhttp.send();
+}
+
