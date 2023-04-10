@@ -1,0 +1,47 @@
+<style>
+label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  #nume,#cantitate{
+    width: 250px;
+    max-height:50px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+  }
+
+  button {
+    max-width: 100px;
+    max-height:50px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .addArea{
+    margin-left: 10px;
+    width: 500px;
+}
+  #rezultat {   
+    margin-top: 75px;
+    margin-left:50px;
+    margin-bottom:100px;
+  }
+</style>
+<script src="./js/cumparaturi.js"></script>
+<form class="addArea">
+  <label for="nume">Nume produs:</label>
+  <input type="text" id="nume" name="nume"><br>
+
+  <label for="cantitate">Cantitate:</label>
+  <input type="text" id="cantitate" name="cantitate"><br>
+  <button id="buton-adauga" onclick="adaugaProdus()" type="button">Adaugă</button>
+</form>
+<p style="visibility: hidden;"><strong>Observatie:</strong> Componentele pasive cu mai mult de două terminale pot fi descrise prin componente cu doi pini ce satisfac principiul <em>reciprocității</em>. Componentele active nu au aceasta proprietate.</p>
+
