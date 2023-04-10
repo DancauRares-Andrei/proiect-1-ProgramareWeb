@@ -1,17 +1,20 @@
-const worker = new Worker('./js/worker.js');
-class Produs {
-  constructor(nume, cantitate, id) {
-    this.nume = nume;
-    this.cantitate = cantitate;
-    this.id = id;
+
+if (typeof Produs === 'undefined') {
+  class Produs {
+    constructor(nume, cantitate, id) {
+      this.nume = nume;
+      this.cantitate = cantitate;
+      this.id = id;
+    }
   }
 }
 
 var listaCumparaturi = [];
 
-const formular = document.querySelector('form');
-const butonAdauga = document.querySelector('#buton-adauga');
-const adaugaProdus = () => {
+var formular = document.querySelector('form');
+var butonAdauga = document.querySelector('#buton-adauga');
+var worker = new Worker('./js/worker.js');
+var adaugaProdus = () => {
   const nume = formular.nume.value;
   const cantitate = formular.cantitate.value;
 
@@ -47,11 +50,11 @@ worker.onmessage = function(event) {
   row.insertCell().textContent = event.data.cantitate;
 };
 
-const initTable = () => {
+var initTable = () => {
   listaCumparaturi=JSON.parse(localStorage.getItem('listaProduse')) || [];
-  const tableBody = document.querySelector('#tabel-cumparaturi tbody');
+  var tableBody = document.querySelector('#tabel-cumparaturi tbody');
   tableBody.innerHTML = '';
-  const listaProduse = JSON.parse(localStorage.getItem('listaProduse'));
+  var listaProduse = JSON.parse(localStorage.getItem('listaProduse'));
 
   if (listaCumparaturi) {
     listaCumparaturi.forEach((produs, index) => {
@@ -67,8 +70,4 @@ const initTable = () => {
   }
 };
 initTable();
-/*document.addEventListener('DOMContentLoaded', () => {
-  initTable();
-});*/
-
 
