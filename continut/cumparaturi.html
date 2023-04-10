@@ -1,4 +1,11 @@
 <style>
+#pagina-adaugare{
+display: block;
+}
+h1 {
+        text-align: center;
+        margin-top: 0;
+      }
 label {
     display: block;
     margin-bottom: 5px;
@@ -26,22 +33,48 @@ label {
   }
   .addArea{
     margin-left: 10px;
-    width: 500px;
 }
   #rezultat {   
     margin-top: 75px;
     margin-left:50px;
     margin-bottom:100px;
   }
+  .inputuri{
+    display:flex;
+    gap: 20px;
+}
+.labeluri{
+display:flex;
+gap: 120px;
+}
 </style>
 <script src="./js/cumparaturi.js"></script>
+<div id="pagina-adaugare">
+<h1>Cumpărături</h1>
 <form class="addArea">
-  <label for="nume">Nume produs:</label>
-  <input type="text" id="nume" name="nume"><br>
-
-  <label for="cantitate">Cantitate:</label>
-  <input type="text" id="cantitate" name="cantitate"><br>
-  <button id="buton-adauga" onclick="adaugaProdus()" type="button">Adaugă</button>
+<div class="labeluri">
+  <label for="nume">Nume Produs</label>
+<label for="cantitate">Cantitate</label>
+</div>
+    <div class="inputuri">
+        <input type="text" id="nume" name="nume" required> 
+        <input type="text" id="cantitate" name="cantitate" required>
+          <button id="buton-adauga" onclick="adaugaProdus()" type="button">Adaugă</button>
+    </div>
 </form>
 <p style="visibility: hidden;"><strong>Observatie:</strong> Componentele pasive cu mai mult de două terminale pot fi descrise prin componente cu doi pini ce satisfac principiul <em>reciprocității</em>. Componentele active nu au aceasta proprietate.</p>
+
+<table id="tabel-cumparaturi">
+  <thead>
+    <tr>
+      <th>Nr.</th>
+      <th>Nume Produs</th>
+      <th>Cantitate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- aici vor fi adăugate rândurile tabelului dinamic prin codul JavaScript -->
+  </tbody>
+</table>
+</div>
 
