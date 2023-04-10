@@ -11,21 +11,21 @@ localStorageBtn.addEventListener("click", () => {
 
 indexedDBBtn.addEventListener("click", () => {
     localStorage.setItem("selectedOption", "indexedDB");
-    initTable();
+    initTable(); 
 });
-class Produs {
+var Produs = Produs || class {
     constructor(nume, cantitate, id) {
         this.nume = nume;
         this.cantitate = cantitate;
         this.id = id;
     }
 }
-class Stocare {
+var Stocare = Stocare || class {
     adaugăProdus(produs) {}
     preiaProduse() {}
 }
 
-class LocalStorageStocare extends Stocare {
+var LocalStorageStocare= LocalStorageStocare || class extends Stocare {
     adaugăProdus(produs) {
         listaCumparaturi.push(produs);
         localStorage.setItem('listaProduse', JSON.stringify(listaCumparaturi));
@@ -36,7 +36,7 @@ class LocalStorageStocare extends Stocare {
         return listaCumparaturi;
     }
 }
-class IndexDBStocare extends Stocare {
+var IndexDBStocare = IndexDBStocare || class extends Stocare {
   constructor() {
     super();
     this.openDB();
