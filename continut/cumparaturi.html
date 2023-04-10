@@ -44,6 +44,13 @@ white-space: nowrap;
 margin-left:400px;
 gap: 70px;
 }
+.stocare{
+display:flex;
+}
+.stocare p{
+margin-top:0px;
+margin-right:20px;
+}
 </style>
 <script src="./js/cumparaturi.js"></script>
 <div id="pagina-adaugare">
@@ -59,8 +66,16 @@ gap: 70px;
           <button id="buton-adauga" onclick="adaugaProdus()" type="button">Adaugă</button>
     </div>
 </form>
-<p style="visibility: hidden;"><strong>Observatie:</strong> Componentele pasive cu mai mult de două terminale pot fi descrise prin componente cu doi pini ce satisfac principiul <em>reciprocității</em>. Componentele active nu au aceasta proprietate.</p>
-
+<br><br>
+<div class="stocare">
+            <p>Modalitate de stocare:</p>
+            <label>
+                <input type="radio" name="storageType" id="localStorage" value="localStorage" checked> localStorage
+            </label>
+            <label>
+                <input type="radio" name="storageType" id="indexedDB" value="indexedDB"> indexedDB
+            </label>
+        </div>
 <table id="tabel-cumparaturi">
   <thead>
     <tr>
@@ -73,5 +88,6 @@ gap: 70px;
     <!-- aici vor fi adăugate rândurile tabelului dinamic prin codul JavaScript -->
   </tbody>
 </table>
+<p style="visibility: hidden;"><strong>Observatie:</strong> Componentele pasive cu mai mult de două terminale pot fi descrise prin componente cu doi pini ce satisfac principiul <em>reciprocității</em>. Componentele active nu au aceasta proprietate.</p>
 </div>
 
