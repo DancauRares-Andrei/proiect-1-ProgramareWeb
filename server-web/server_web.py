@@ -39,6 +39,8 @@ def procesare_cerere(clientsocket,address):
             linieDeStart = cerere[0:pozitie]
             print('S-a citit linia de start din cerere: ##### ' + linieDeStart + '#####')
             numeResursa = linieDeStart.split(' ')[1]
+            if numeResursa=='/':
+                numeResursa = '/index.html'
             print('S-a cerut resursa: ' + numeResursa)
             # Parsarea cererii
             if linieDeStart.startswith('POST'):
