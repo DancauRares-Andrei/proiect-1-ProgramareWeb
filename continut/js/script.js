@@ -39,7 +39,20 @@ function schimbaContinut(resursa, jsFisier, jsFunctie) {
                 document.getElementById("url").innerHTML = window.location.href;
 
                 // afișare locația curentă
-                document.getElementById("locație").innerHTML = window.location.pathname;
+                //document.getElementById("locație").innerHTML = "Latitude: " + position.coords.latitude +"<br>Longitude: " + position.coords.longitude;
+                function getLocation() {
+                    console.log("hello");
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition);
+                     } else {
+                        document.getElementById("locație").innerHTML  = "Geolocation is not supported by this browser.";
+                }
+                }
+
+                function showPosition(position) {
+                    document.getElementById("locație").innerHTML = "Latitudine: " + position.coords.latitude +"  Longitudine: " + position.coords.longitude;
+                }
+                setInterval(getLocation, 1000);
 
                 // afișare numele și versiunea browser-ului
                 var browser = navigator.userAgent;
