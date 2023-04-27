@@ -52,7 +52,8 @@ function schimbaContinut(resursa, jsFisier, jsFunctie) {
                 function showPosition(position) {
                     document.getElementById("locație").innerHTML = "Latitudine: " + position.coords.latitude +"  Longitudine: " + position.coords.longitude;
                 }
-                setInterval(getLocation, 1000);
+                getLocation();
+                //setInterval(getLocation, 500);
 
                 // afișare numele și versiunea browser-ului
                 var browser = navigator.userAgent;
@@ -213,7 +214,7 @@ function insertRow() {
     var table = document.getElementById("myTable"); // obțineți tabelul folosind ID-ul
     var row = parseInt(document.getElementById("row").value) - 1; // obțineți poziția liniei din input
     var color = document.getElementById("color").value; // obțineți culoarea din input
-
+    if(row>=0 && row<=table.rows.length){
     // obțineți numărul de coloane din tabel
     var colCount = table.rows[0].cells.length;
 
@@ -226,6 +227,7 @@ function insertRow() {
         cell.style.backgroundColor = color; // setați culoarea celulei
     }
 }
+}
 
 
 function insertCol() {
@@ -234,10 +236,14 @@ function insertCol() {
     var color = document.getElementById("color").value; // obțineți culoarea din input
 
     // parcurgeți fiecare rând din tabel și adăugați o celulă nouă la poziția specificată
+    if(col>=0){
     for (var i = 0; i < table.rows.length; i++) {
+        if(col<=table.rows[i].cells.length){
         var cell = table.rows[i].insertCell(col);
         cell.style.backgroundColor = color; // setați culoarea celulei
+}
     }
+}
 }
 function validare() {
   const utilizatorInput = document.getElementById("utilizator").value;
