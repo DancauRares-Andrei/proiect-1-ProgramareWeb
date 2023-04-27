@@ -18,6 +18,40 @@ function schimbaContinut(resursa, jsFisier, jsFunctie) {
                     window[jsFunctie]();
                 }
             }
+            if (resursa == "inregistreaza") {
+                const form = document.querySelector('form');
+                const button = document.querySelector('#inreg');
+
+                button.addEventListener('click', (event) => {
+                    event.preventDefault(); // oprește comportamentul implicit al butonului
+
+                    const formData = new FormData(form);
+                    const requestData = {
+                        username: formData.get('username'),
+                        password: formData.get('password')
+                    };
+
+                    fetch(form.action, {
+                            method: 'POST',
+                            body: JSON.stringify(requestData),
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                var raspuns = document.querySelector('#rezultat');
+                                raspuns.innerHTML = "Utilizator înregistrat cu succes!";
+                            } else {
+                                console.error('A apărut o eroare la trimiterea cererii POST.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('A apărut o eroare la trimiterea cererii POST:', error);
+                        });
+                });
+
+            }
             if (resursa == "invat") {
                 var dataOra = new Date();
                 var dataOraElem = document.getElementById("data-ora");
@@ -44,13 +78,13 @@ function schimbaContinut(resursa, jsFisier, jsFunctie) {
                     console.log("hello");
                     if (navigator.geolocation) {
                         navigator.geolocation.getCurrentPosition(showPosition);
-                     } else {
-                        document.getElementById("locație").innerHTML  = "Geolocation is not supported by this browser.";
-                }
+                    } else {
+                        document.getElementById("locație").innerHTML = "Geolocation is not supported by this browser.";
+                    }
                 }
 
                 function showPosition(position) {
-                    document.getElementById("locație").innerHTML = "Latitudine: " + position.coords.latitude +"  Longitudine: " + position.coords.longitude;
+                    document.getElementById("locație").innerHTML = "Latitudine: " + position.coords.latitude + "  Longitudine: " + position.coords.longitude;
                 }
                 getLocation();
                 //setInterval(getLocation, 500);
@@ -214,19 +248,19 @@ function insertRow() {
     var table = document.getElementById("myTable"); // obțineți tabelul folosind ID-ul
     var row = parseInt(document.getElementById("row").value) - 1; // obțineți poziția liniei din input
     var color = document.getElementById("color").value; // obțineți culoarea din input
-    if(row>=0 && row<=table.rows.length){
-    // obțineți numărul de coloane din tabel
-    var colCount = table.rows[0].cells.length;
+    if (row >= 0 && row <= table.rows.length) {
+        // obțineți numărul de coloane din tabel
+        var colCount = table.rows[0].cells.length;
 
-    // inserați un nou rând în tabel la poziția specificată
-    var newRow = table.insertRow(row);
+        // inserați un nou rând în tabel la poziția specificată
+        var newRow = table.insertRow(row);
 
-    // parcurgeți fiecare coloană din rândul nou creat și adăugați o celulă nouă
-    for (var i = 0; i < colCount; i++) {
-        var cell = newRow.insertCell(i);
-        cell.style.backgroundColor = color; // setați culoarea celulei
+        // parcurgeți fiecare coloană din rândul nou creat și adăugați o celulă nouă
+        for (var i = 0; i < colCount; i++) {
+            var cell = newRow.insertCell(i);
+            cell.style.backgroundColor = color; // setați culoarea celulei
+        }
     }
-}
 }
 
 
@@ -236,37 +270,38 @@ function insertCol() {
     var color = document.getElementById("color").value; // obțineți culoarea din input
 
     // parcurgeți fiecare rând din tabel și adăugați o celulă nouă la poziția specificată
-    if(col>=0){
-    for (var i = 0; i < table.rows.length; i++) {
-        if(col<=table.rows[i].cells.length){
-        var cell = table.rows[i].insertCell(col);
-        cell.style.backgroundColor = color; // setați culoarea celulei
-}
-    }
-}
-}
-function validare() {
-  const utilizatorInput = document.getElementById("utilizator").value;
-  const parolaInput = document.getElementById("parola").value;
-
-  const xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      const utilizatori = JSON.parse(this.responseText);
-      let utilizatorValid = false;
-      utilizatori.forEach(function(utilizator) {
-        if (utilizator.utilizator === utilizatorInput && utilizator.parola === parolaInput) {
-          utilizatorValid = true;
+    if (col >= 0) {
+        for (var i = 0; i < table.rows.length; i++) {
+            if (col <= table.rows[i].cells.length) {
+                var cell = table.rows[i].insertCell(col);
+                cell.style.backgroundColor = color; // setați culoarea celulei
+            }
         }
-      });
-      const rezultat = document.getElementById("rezultat");
-      if (utilizatorValid) {
-        rezultat.innerHTML = "Utilizator și parolă corecte!";
-      } else {
-        rezultat.innerHTML = "Utilizator sau parolă incorecte!";
-      }
     }
-  };
-  xhttp.open("GET", "./resurse/utilizatori.json", true);
-  xhttp.send();
+}
+
+function validare() {
+    const utilizatorInput = document.getElementById("utilizator").value;
+    const parolaInput = document.getElementById("parola").value;
+
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            const utilizatori = JSON.parse(this.responseText);
+            let utilizatorValid = false;
+            utilizatori.forEach(function(utilizator) {
+                if (utilizator.utilizator === utilizatorInput && utilizator.parola === parolaInput) {
+                    utilizatorValid = true;
+                }
+            });
+            const rezultat = document.getElementById("rezultat");
+            if (utilizatorValid) {
+                rezultat.innerHTML = "Utilizator și parolă corecte!";
+            } else {
+                rezultat.innerHTML = "Utilizator sau parolă incorecte!";
+            }
+        }
+    };
+    xhttp.open("GET", "./resurse/utilizatori.json", true);
+    xhttp.send();
 }

@@ -47,12 +47,8 @@ def procesare_cerere(clientsocket,address):
                 # Parsare continut cerere
                 pozitie = cerere.find('\r\n\r\n')
                 continut = cerere[pozitie+4:]
-                elemente = continut.split('&')
-                cerere_dict = {}
-                for element in elemente:
-                    cheie_valoare = element.split('=')
-                    cerere_dict[cheie_valoare[0]] = cheie_valoare[1]
-
+                elemente = continut.split(',')
+                cerere_dict = json.loads(continut)
                 # Creare obiect JSON cu numele de utilizator si parola
                 username = cerere_dict['username']
                 password = cerere_dict['password']
@@ -70,9 +66,10 @@ def procesare_cerere(clientsocket,address):
                     json.dump(lista_utilizatori, f)
 
                 # Trimitere raspuns
-                raspuns = 'HTTP/1.1 302 Found\r\nLocation:/index.html\r\n\r\n'
+                raspuns = 'HTTP/1.1 200 OK\r\n\r\n'
                 clientsocket.sendall(raspuns.encode())
                 clientsocket.close()
+                break
             else:
                  # extrage extensia fisierului pentru a determina tipul de media corespunzator
                 extensie = numeResursa.split('.')[-1]
